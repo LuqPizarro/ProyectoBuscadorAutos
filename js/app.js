@@ -1,10 +1,17 @@
 // Variables
 const resultado = document.querySelector('#resultado');
+const year = document.querySelector('#year');
+
+const max = new Date().getFullYear();
+const min = max -10;
 
 
 // Eventos
 document.addEventListener('DOMContentLoaded', () => {
     mostrarAutos();
+
+    // Insertar los años
+    mostrarYear();
 });
 
 
@@ -23,4 +30,14 @@ function mostrarAutos() {
         //Insertar en el HTML
         resultado.appendChild(autoHTML);
     });
+}
+
+function mostrarYear(){
+
+    for( let i = max; i >= min; i--){
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    year.appendChild(option);
+    }
 }
